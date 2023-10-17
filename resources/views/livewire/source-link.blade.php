@@ -4,7 +4,7 @@
         class="ml-3"
     >
         <img 
-            class="w-8 h-8" 
+            class="w-5 h-5 bg-white" 
             src="{{ asset($page[0]['icon']) }}" 
             alt="Ícone do GitHub"
         >

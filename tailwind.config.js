@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
+            fontSize: {
+                'lg-plus': '1.125rem', // 1.125rem é um exemplo, você pode ajustar conforme necessário
+            },
         },
     },
 

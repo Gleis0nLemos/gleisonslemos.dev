@@ -3,7 +3,9 @@
       <h1 class="text-2xl font-semibold whitespace-nowrap mt-7">
         <a 
           href="/" 
-          class="hover:no-underline">
+          class="hover:no-underline"
+          wire:click.prevent="changeTextColor"
+          >
           Gleison Lemos
           </a>
       </h1>
