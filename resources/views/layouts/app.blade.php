@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-black">
+    <body class="font-sans antialiased bg-stone-950">
         
         {{ $slot }}
         

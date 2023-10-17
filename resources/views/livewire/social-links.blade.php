@@ -5,7 +5,7 @@
       class="rounded-lg mx-auto mt-4 mb-2" 
     />
     <div class="w-65 h-14 relative mb-2">
-      <div class="left-[19px] top-[13px] absolute text-white text-2xl font-extrabold"
+      <div class="left-[19px] top-[13px] absolute text-white text-lg font-semibold"
       >
       Social links!
     </div>
@@ -21,7 +21,7 @@
           <div class="text-white text-lg font-normal font-['Roboto'] ml-2">
             <a 
               href="{{ $socialLink['url'] }}" 
-              class="hover:border-b hover:border-white hover:mb-1"
+              class="hover:border-b hover:border-gray-200 hover:mb-1 hover:text-gray-200"
               >
               {{ $socialLink['platform'] }}
             </a>
