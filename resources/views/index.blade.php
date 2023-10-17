@@ -18,23 +18,7 @@
           </li>
           <li>
             <div class="flex items-center">
-              <a 
-                href="https://github.com/Gleis0nLemos/gleisonslemos.dev" 
-                class="ml-2"
-                >
-                <img 
-                  class="w-8 h-8" 
-                  src="{{ asset('icons/github-icon.svg') }}" 
-                  alt="Ícone do GitHub" 
-                />
-              </a>
-              <div class="ml-1">
-                <a 
-                  href="https://github.com/Gleis0nLemos/gleisonslemos.dev" 
-                  class="hover:border-b hover:border-white hover:mb-1"
-                  >Source
-                </a>
-              </div>
+              <livewire:source-link name="Source" />
             </div>
           </li>
         </ul>
@@ -50,10 +34,10 @@
       <h1 class="text-2xl font-bold my-4 mb-2 p-2 bg-blue-600 w-full text-white">
         Hi! I’m Gleison here 👋🏻!
       </h1>
-      <p class="my-2 text-justify text-white tracking-wide text-lg">
+      <p class="my-2 text-justify text-white tracking-wide">
         I'm an aspiring Systems Analysis and Development academic, I'm 23 years old, I live in Brazil and I'm very interested in backend creations. My hardskills are PHP, Laravel, SQL. My experiences at the moment are personal open source projects.
       </p>
-      <p class="my-2 text-justify text-white tracking-wide text-lg">
+      <p class="my-2 text-justify text-white tracking-wide">
         In my free time, I always seek to deepen my knowledge in the world of programming, I recommend that you pay attention to my GitHub. I'm dedicated to becoming a top-notch developer and building your dream project with you giving my all!
       </p>
       <h1 class="text-2xl font-bold my-4 mt-8 p-4 pr-7 bg-lime-800 w-fit text-white"">

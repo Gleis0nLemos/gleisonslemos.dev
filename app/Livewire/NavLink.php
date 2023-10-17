@@ -15,8 +15,6 @@ class NavLink extends Component
             $this->page = $pageService->getAboutPage();
         } elseif ($name === 'Projects') {
             $this->page = $pageService->getProjectsPage();
-        } else {
-            $this->page = $pageService->getSourcePage();
         }
     }
 

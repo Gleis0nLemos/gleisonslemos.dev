@@ -27,7 +27,8 @@ class NavLinkService
     public function getSourcePage()
     {
         return [
-            [
+            [   
+                'icon' => 'icons/github-icon.svg',
                 'name' => 'Source',
                 'url' => 'https://github.com/Gleis0nLemos/gleisonslemos.dev',
             ],
