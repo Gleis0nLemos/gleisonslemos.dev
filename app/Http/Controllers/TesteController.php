@@ -10,6 +10,6 @@ class TesteController extends Controller
 {
     public function index(): View
     {
-        return view('teste');
+        return view('index');
     }
 }

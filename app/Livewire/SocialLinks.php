@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Services\SocialLinksService;
 use Livewire\Component;
 
-class Teste extends Component
+class SocialLinks extends Component
 {
     public $socialLinks;
 

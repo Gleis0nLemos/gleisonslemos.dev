@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/teste', [TesteController::class, 'index'])->name('teste.index');
+Route::get('/', [TesteController::class, 'index'])->name('teste.index');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
