@@ -16,13 +16,13 @@
         <livewire:about-me name="content2" />
       </p>
       <div id="heading">
-        <h1  class="text-xl font-semibold my-3 mt-8 p-4 pr-7 bg-lime-700 w-fit text-white"">
+        <h1  class="text-xl font-semibold my-3 mt-6 p-4 pr-7 bg-lime-700 w-fit text-white"">
           <livewire:about-me name="ask" />
         </h1>
         <h1 class="text-lg font-semibold p-4 pr-10 bg-pink-600 w-fit text-white flex hover:bg-pink-700 transition duration-400">
           <img 
             src="{{ asset('icons/curriculum-icon.svg') }}" 
-            class="mr-1"
+            class="mr-2"
             />
           <livewire:about-me name="curriculum" />
         </h1>
