@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\TesteController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TesteController::class, 'index'])->name('teste.index');
+Route::get('/', [AboutController::class, 'index'])->name('about');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

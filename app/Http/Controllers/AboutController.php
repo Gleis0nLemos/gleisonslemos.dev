@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class TesteController extends Controller
+class AboutController extends Controller
 {
     public function index(): View
     {
