@@ -8,21 +8,22 @@ use Illuminate\Support\Facades\Cache;
 
 class ProjectController extends Controller
 {
+    
     public function index()
     {
         $username = 'Gleis0nLemos';
-        $perPage = 30; 
+        $selectedProjectNames = ['super_gestao', 'laravel-commerce-checkout', 'NLW_10-EXPLORER'];
+
         $cacheKey = "github_projects_{$username}";
         $projects = Cache::get($cacheKey);
 
         if (!$projects) {
             $token = env('GITHUB_TOKEN');
-
-            $page = 1;
             $projects = [];
 
-            do {
-                $url = "https://api.github.com/users/{$username}/repos?page={$page}&per_page={$perPage}";
+            foreach ($selectedProjectNames as $projectName) {
+                // Faz uma solicitação para obter os detalhes do repositório
+                $url = "https://api.github.com/repos/{$username}/$projectName";
 
                 $client = new Client([
                     'headers' => [
@@ -33,27 +34,39 @@ class ProjectController extends Controller
                 $response = $client->get($url);
 
                 if ($response->getStatusCode() === 200) {
-                    $data = json_decode($response->getBody(), true);
-                    $projects = array_merge($projects, $data);
-                }
+                    $projectData = json_decode($response->getBody(), true);
 
-                $nextPageLink = null;
-                $links = $response->getHeader('Link');
-                foreach ($links as $link) {
-                    if (preg_match('/<([^>]+)>; rel="next"/', $link, $matches)) {
-                        $nextPageLink = $matches[1];
-                        break;
+                    // Agora, você pode acessar informações adicionais, como descrição e estrelas
+                    $description = $projectData['description'];
+                    $stars = $projectData['stargazers_count'];
+                    $language = $projectData['language'];
+
+                    // Adicione informações adicionais ao array de projetos
+                    $projectData['description'] = $description;
+                    $projectData['stars'] = $stars;
+                    $projectData['language'] = $language;
+
+                    // Obter os contribuidores do projeto
+                    $contributorsUrl = $projectData['contributors_url'];
+                    $contributorsResponse = $client->get($contributorsUrl);
+                    $contributors = json_decode($contributorsResponse->getBody(), true);
+
+                    $contributorNames = [];
+                    $contributorAvatars = [];
+
+                    foreach ($contributors as $contributor) {
+                        $contributorNames[] = $contributor['login'];
+                        $contributorAvatars[] = $contributor['avatar_url'];
                     }
-                }
 
-                if ($nextPageLink) {
-                    $page++;
-                } else {
-                    break; // Não há mais páginas
-                }
-            } while ($nextPageLink);
+                    $projectData['contributor_names'] = $contributorNames;
+                    $projectData['contributor_avatars'] = $contributorAvatars;
 
-            Cache::put($cacheKey, $projects, 6000); // Armazene em cache os dados por 60 minutos
+                    $projects[] = $projectData;
+                }
+            }
+
+            Cache::put($cacheKey, $projects, 60); 
         }
 
         return view('projects', compact('projects'));
